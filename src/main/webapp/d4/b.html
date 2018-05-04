@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta HTTP-EQUIV="X-UA-COMPATIBLE" CONTENT="IE=9" >
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta property="og:image" content="http://www.brightpointinc.com/interactive/images/Deficit_202px.png">
+
+    <title>Data Visualization D4.js</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="scripts/d3/d3.min.js"></script>
+    <script type="text/javascript" src="scripts/d3/math/trigonometry.js"></script>
+    <script type="text/javascript" src="scripts/d3/svg/arc.js"></script>
+    <script type="text/javascript" src="scripts/d3/core/functor.js"></script>
+    <script type="text/javascript" src="scripts/d3/core/source.js"></script>
+    <script type="text/javascript" src="scripts/d3/core/target.js"></script>
+    <script type="text/javascript" src="scripts/d3/layout/arc-chord.js"></script>
+    <script type="text/javascript" src="scripts/d3/svg/arc-chord.js"></script>
+
+    <script type="text/javascript" src="scripts/brightpoint/gradients.js"></script>
+
+</head>
+<body>
+<div id="bpg">
+    <div id="mainDiv">      
+        <div id="svgDiv" style="font-size:10px"></div>    
+        <div id="toolTip" class="tooltip" style="opacity:0; width:200px; height:90px; position:absolute;">
+            <div id="header1" class="header3"></div>
+            <div class="header-rule"></div>
+            <div id="head" class="header"></div>
+            <div class="header-rule"></div>
+            <div  id="header2" class="header2"></div>
+            <div  class="tooltipTail"></div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="scripts/app/globals.js"></script>
+    <script type="text/javascript" src="scripts/app/initialize.js"></script>
+    <script type="text/javascript" src="scripts/app/events.js"></script>
+    <script type="text/javascript" src="scripts/app/data.js"></script>
+    <script type="text/javascript" src="scripts/app/_buildChords.js"></script>
+    <script type="text/javascript" src="scripts/app/update.js"></script>
+
+    <script type="text/javascript">
+
+	//count:number of progress bar 
+	var prgrCount=100, totalFetchCount=150, totalPplCount=10, initPrgrCount=0, dataJsonObj='data/ustrade_2000-2014.csv';
+    initialize(prgrCount, totalPplCount);
+    fetchData(dataJsonObj, totalFetchCount);
+ 
+	function run() {			
+		 if(initPrgrCount++ <totalPplCount) {
+			update(0,initPrgrCount);
+		 } else {
+			initPrgrCount=0;
+			fetchData(dataJsonObj, totalFetchCount);
+		 }
+	}
+    </script>
+</body>
+</html>
