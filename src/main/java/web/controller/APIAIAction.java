@@ -1,6 +1,8 @@
 package web.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -43,6 +45,11 @@ public class APIAIAction {
 	    ExternalContext    externalContext = FacesContext.getCurrentInstance().getExternalContext();
 	    HttpServletRequest request         = (HttpServletRequest) externalContext.getRequest();
 	    FacesContext.getCurrentInstance().getExternalContext().redirect(request.getContextPath()+"/pages/setup.xhtml?faces-redirect=true");
+	
+	    images = new ArrayList<String>();
+        for (int i = 1; i <= 4; i++) {
+            images.add("nature" + i + ".jpg");
+        }
 	}
 	
 	
@@ -88,6 +95,11 @@ public class APIAIAction {
 		this.message = message;
 	}
 	
+	 private List<String> images;
+     
+    public List<String> getImages() {
+        return images;
+    }
 	
 	@Override
 	public String toString() {

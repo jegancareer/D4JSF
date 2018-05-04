@@ -23,10 +23,14 @@
 			    </div>
 			</div>
 			
-			
+			<p:galleria style="margin-left:400px;" value="#{apiAIAction.images}" var="image" panelWidth="500" panelHeight="5" showCaption="false">
+			    <p:graphicImage name="../../d4/images/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+			</p:galleria>
+			<br/><br/>
 			<h:form prependId="false">
 		 
 			<h:commandButton value = "Join (Free)"  action="#{apiAIAction.join}" disabled="false" rendered="true"/>
+			<h:commandButton value = "Invite Friends"  action="#{apiAIAction.join}" disabled="false" rendered="true"/><br/>
  			<h:commandButton value = "Roll (Info)"  action="#{apiAIAction.rollInfo}" />
  			<h:commandButton value = "Sponsor (Info)"  action="#{apiAIAction.sponsorInfo}"/>
  			
