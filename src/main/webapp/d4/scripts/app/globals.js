@@ -65,11 +65,11 @@ d3.select(document.getElementById("imgDiv"))
 
 var svg = d3.select(document.getElementById("svgDiv"))
     .style("width", (outerRadius*2) + "px")
-    .style("height", (outerRadius*2+200) + "px")
+    .style("height", (outerRadius*2+100) + "px")
     .append("svg")
     .attr("id","svg")
     .style("width", (outerRadius*2) + "px")
-    .style("height", (outerRadius*2+200) + "px");
+    .style("height", (outerRadius*2+100) + "px");
 
 
 var export_chord = d3.layout.arc_chord()
@@ -91,6 +91,7 @@ var arc = d3.svg.arc()
 
 var dGroup = svg.append("g")
     .attr("class","mainLabel")
+    .attr("transform", "translate(" + ((outerRadius + innerRadius *.7/2)-(outerRadius-(innerRadius *.8/2))-180) + ","  + 0 +")")
 
 dGroup.append("text")
     .attr("class","mainLabel")
@@ -99,9 +100,15 @@ dGroup.append("text")
 
 dGroup.append("text")
     .attr("class","secondLabel")
-    .attr("transform", "translate(" + (outerRadius - 90) + ","  + (outerRadius * 1.15) +")")
-    .text("* Cumulative trade imbalance since 2001")
+    .attr("transform", "translate(" + (outerRadius - 60) + ","  + (outerRadius * 1.15) +")")
+    .text("*Person joined and in counting")
     .style("font-size","0px");
+
+dGroup.append("text")
+.attr("class","thirdLabel")
+.attr("transform", "translate(" + (outerRadius - 60) + ","  + (outerRadius * 1.05) +")")
+.text("*By Accenture corporation")
+.style("font-size","0px");
 
 var gY=(outerRadius-(innerRadius *.8/2));
 
