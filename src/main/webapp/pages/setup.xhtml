@@ -8,6 +8,7 @@
 
 	<ui:composition template="/template/layout.xhtml">
 		<ui:define name="content">
+		
 			 <div id="bpg">
 			    <div id="mainDiv">      
 			        <div id="svgDiv" style="font-size:10px"></div>    
@@ -31,8 +32,9 @@
 
     <script type="text/javascript">
 
-	//count:number of progress bar 
-	var prgrCount=200, totalFetchCount=50, totalPplCount=100, initPrgrCount=0, dataJsonObj='../d4/data/ustrade_2000-2015.csv';
+	//count:number of progress bar
+	var prgrCount=#{apiAIAction.prgressCount}, totalFetchCount=#{apiAIAction.totalFetchCount}, totalPplCount=#{apiAIAction.totalPplCount}, initPrgrCount=0;
+	var dataJsonObj="#{apiAIAction.dataLocation}";
     initialize(prgrCount, totalPplCount);
     fetchData(dataJsonObj, totalFetchCount);
  
