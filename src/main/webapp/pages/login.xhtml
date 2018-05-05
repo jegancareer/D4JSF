@@ -10,9 +10,10 @@
 		<ui:define name="content">
 			<script> </script>
 			<h:form prependId="false">
-		 
-		<h:inputText id="message" value="#{apiAIAction.rollId}" />
-		<h:commandButton value = "TYPE!" id="send" action="#{apiAIAction.submit}"/>
+		<h:messages globalOnly="true"/>
+		<h:inputText id="uname" value="#{rollAuthAction.uname}" />
+		<h:inputText id="pwd" value="#{rollAuthAction.pwd}" />
+		<h:commandButton value = "TYPE!" id="send" action="#{rollAuthAction.submit}"/>
  
 			</h:form>
 		</ui:define>
